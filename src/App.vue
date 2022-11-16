@@ -10,7 +10,6 @@ import RickMortyFacts from './components/Cards/RickMortyFacts.vue';
   </Suspense>
 
 </template>
-
 <style scoped>
 
 </style>

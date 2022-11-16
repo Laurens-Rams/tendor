@@ -11,24 +11,32 @@ let API = `https://rickandmortyapi.com/api`
 // CITY API - working
 // let API = https://api.teleport.org/api/cities/
 
-function getPromise(parameter) {
+function getPromise() {
 	return fetch(API + parameter)
 }
 
-
-await new Promise(resolve => {
-    setTimeout(() => { 
-      resolve()
-    }, 1000)
-  })
-
-  try {
-    const res = await getPromise('/character')
+// without timer for the loading.. 
+const res = await getPromise('/character')
+  if (!res.ok) {
+    throw new Error()
+  } else {
     response.value = (await res.json())
-    console.log(response.value.results)
-  } catch (error) {
-    response.value = {answer: 'The Rick API responded with an Error: ' + error}
   }
+
+// with a  timer for the loading.. so we can stimulate a loading
+// await new Promise(resolve => {
+//     setTimeout(() => { 
+//       resolve()
+//     }, 1000)
+//   })
+
+//   try {
+//     const res = await getPromise('/character')
+//     response.value = (await res.json())
+//     console.log(response.value.results)
+//   } catch (error) {
+//     response.value = {answer: 'The Rick API responded with an Error: ' + error}
+//   }
 
 </script>
 
