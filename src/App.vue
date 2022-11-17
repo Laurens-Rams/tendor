@@ -18,10 +18,12 @@ onErrorCaptured((e) => {
 </script>
 
 <template>
+  <div class="middle_box">
   <Suspense>
     <template #fallback>loading..</template>
     <List_comp />
   </Suspense>
+</div>
 </template>
 <style scoped>
 
