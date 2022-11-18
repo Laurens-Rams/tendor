@@ -3,7 +3,7 @@ import { ref, computed, onMounted, onErrorCaptured } from 'vue'
 const response = ref({})
 const error = ref('')
 
-let API_BASE_URL =  'https://newsapi.org/v2/top-headlines?country=de&category=business&apiKey=3e54c57a83a04c1d87d2d144e53cec01'
+let API_BASE_URL =  'https://newsapi.ai/api/v1/article/getArticlesForTopicPage?uri=240f6a12-b9d8-40a6-b1c6-a220e31d08de&dataType=news&resultType=articles&articlesSortBy=rel&includeArticleCategories=true&includeArticleImage=true&articleBodyLen=-1&apiKey=f05bdd8b-b41f-468f-a0e7-3cb7e4281ba2'
 
 async function getData() {
     const res = await fetch(API_BASE_URL)
@@ -11,7 +11,6 @@ async function getData() {
       throw new Error()
   } else {
     response.value = await res.json()
-    console.log(response.value.articles)
   }
 }
 
@@ -25,7 +24,6 @@ onErrorCaptured((e) => {
   return true
 })
 
-
 const showCardsPerPage = computed(() => {
     return response.value.articles
 })
@@ -37,11 +35,7 @@ const showCardsPerPage = computed(() => {
       <li v-for="card in showCardsPerPage" :key="card.id">
         <!-- TODO: Create Component for this -->
         <div class="RickMorty_card">
-          <p class="origin">{{ card.title }}</p>
-          <p class="origin">{{ card.description }}</p>
-          <div class="picture"><img :src="card.urlToImage" alt="test"/></div>
-          <p class="origin">{{ card.publishedAt }}</p>
-
+          <p class="origin">{{ card.results }}</p>
         </div>
       </li>
   </ul>

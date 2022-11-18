@@ -1,17 +1,27 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-defineProps(['name','image','species','origin','status'])
+defineProps(['id','name','image','species','origin','status'])
+
+function getBackgroundColor(status) {
+if (status == 'Dead'){
+    return 'background_color_red'
+}else if(status == 'Alive') {
+    return 'background_color_green'
+} else {
+    return 'background_color_grey'
+}
+}
+
 
 </script>
 <template>
     <li>
         <div class="RickMorty_card">
-            <div class="top_bar">Card</div>
+            <div class="top_bar" :class="getBackgroundColor(status)">{{ status }}</div>
             <div class="picture"><img :src="image" alt="test"/></div>
             <p class="name">{{ name }}</p>
             <p class="species">{{ species }}</p>
-            <p class="origin">{{ origin }}</p>
-            <p class="status">{{ status }}</p>
+            <router-link :to="{name: 'DetailView', params: { id: id }}">Details</router-link>
         </div>
     </li>
 </template>
