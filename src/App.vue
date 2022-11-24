@@ -14,8 +14,5 @@
   <main>
     <router-view></router-view> 
   </main>
-  <footer>
-    Copyright Laurens Ramsenthaler 2022
-  </footer>
 </template>
 

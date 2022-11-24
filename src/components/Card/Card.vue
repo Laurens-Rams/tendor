@@ -21,7 +21,7 @@ if (status == 'Dead'){
             <div class="picture"><img :src="image" alt="test"/></div>
             <p class="name">{{ name }}</p>
             <p class="species">{{ species }}</p>
-            <router-link :to="{name: 'DetailView', params: { id: id }}">Details</router-link>
+            <router-link :to="{name: 'DetailView', params: { id: id }}"><button>Details</button></router-link>
         </div>
     </li>
 </template>

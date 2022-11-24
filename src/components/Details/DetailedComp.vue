@@ -39,12 +39,12 @@ onErrorCaptured((e) => {
 </script>
 <template>
         <div>
-            <div class="top_bar">{{ response_details.status }}</div>
             <div class="picture_details"><img :src="response_details.image" alt="test"/></div>
-            <p class="name">{{ response_details.name }}</p>
-            <p class="species">{{ response_details.species }}</p>
-            <p>{{ response_details.type }}</p>
-            <p>Gender: {{ response_details.gender }}</p>
-            <p>Gender: {{ response_details.created }}</p>
+            <div class="detail_basics_comp">
+                <p class="name_details">{{ response_details.name }}</p>
+                <p class="species">{{ response_details.species }}</p>
+                <p>{{ response_details.type }}</p>
+                <p>Gender: {{ response_details.gender }}</p>
+            </div>
         </div>
 </template>
