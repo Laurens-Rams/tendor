@@ -4,6 +4,7 @@
 
 <template>
     <div class="background_about"></div>
+    <img class="animation" src="../assets/lights.gif" alt="gif" />
 </template>
 
 <style scoped>

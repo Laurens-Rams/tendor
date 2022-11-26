@@ -12,7 +12,6 @@ if (status == 'Dead'){
 }
 }
 
-
 </script>
 <template>
     <li>

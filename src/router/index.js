@@ -3,6 +3,7 @@ import Homepage from '../views/Homepage.vue'
 import About from '../views/About.vue'
 import CardsPage from '../views/CardsPage.vue'
 import DetailedComponent from '../views/DetailedPage.vue'
+import NotFound from '../views/NotFoundPage.vue'
 
 const routes = [
     {
@@ -25,7 +26,8 @@ const routes = [
         name: 'DetailView',
         component: DetailedComponent,
         props: true
-    }
+    }, 
+    { path: '/:pathMatch(.*)*', name: 'notFound', component: NotFound },
 ]
 
 const router = createRouter({

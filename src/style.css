@@ -28,6 +28,7 @@ p {
 
 body {
 background-color: #726d72;
+cursor: url('./src/assets/cursour.png');
 }
 
 h1 {
@@ -50,6 +51,17 @@ h1 {
   position: fixed;
   margin-top: 100px;
   z-index: 10;
+  transition: transform 0.7s;
+}
+
+.hover_zoom_box {
+  width: 25vw;
+  height: 40vw;
+  position: absolute;
+  margin-left: 12vw;
+  z-index: 100;
+  border-radius: 20%;
+
 }
 
 .background_img {
@@ -120,7 +132,7 @@ opacity: 1;
 
 .RickMorty_card {
   width: 80%;
-  height: 25vw;
+  height: 26vw;
   border: 2px solid #777;
   border-radius: 15px;
   margin-bottom: 50px;  
@@ -136,7 +148,7 @@ opacity: 1;
 
 .RickMorty_card:hover {
   width: 85%;
-  height: 26vw;
+  height: 27vw;
   opacity: 1;
   box-shadow: rgba(0, 0, 0, 0.9) 0px 2px 4px, rgba(0, 0, 0, 0.6) 0px 7px 13px -3px, rgba(0, 0, 0, 0.4) 0px -3px 0px inset;
 
@@ -244,6 +256,7 @@ opacity: 1;
   animation-duration: 2s;
   animation-iteration-count: infinite;
   opacity: 0.8;
+  transition: transform 0.7s;
   z-index: -1;
 }
 
@@ -294,7 +307,7 @@ opacity: 1;
 
 .dark {
   width: 80%;
-  height: 22vw;
+  height: 26vw;
   border-radius: 15px;
   margin-bottom: 50px;  
   text-align: center;
@@ -428,15 +441,12 @@ padding-left: 3vw;
 
 .status_filter .active {
   background-color: #ac9c8f99;
-  color: white;
  }
  .species_filter .active {
   background-color: #78a16f99;
-  color: white;
  }
  .gender_filter .active {
   background-color: #558c9799;
-  color: white;
  }
 
 
@@ -450,4 +460,49 @@ padding-left: 3vw;
   background-color: #7e76b2;
   color: white;
   padding: 7px 25px 7px 25px;
+}
+
+
+.flicker_home {
+  opacity: 1;
+}
+.flicker_cards {
+  opacity: 0.6;
+}
+
+
+.animation {
+  width:150vw;
+  position: fixed;
+  pointer-events: none;
+	animation: flickerI 5s linear  reverse infinite;
+}
+@keyframes flickerI {
+	0% {
+		opacity: 0.35;
+	}
+	5% {
+		opacity: 0.3;
+	}
+	10% {
+		opacity: 0.4;
+	}
+	15% {
+		opacity: 0.36;
+	}
+	25% {
+		opacity: 0.23;
+	}
+	30% {
+		opacity: 0.38;
+	}
+	35% {
+		opacity: 0.28;
+	}
+	40% {
+		opacity: 0.25;
+  }
+  100% {
+    opacity: 0.3;
+  }
 }

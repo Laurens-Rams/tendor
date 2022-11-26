@@ -41,7 +41,6 @@ const genders = [
 ];
 
 onErrorCaptured((e) => {
-  console.log('error', e)
   error.value = e
   return true
 })
@@ -62,14 +61,22 @@ function ClearFilters() {
     input_gender.value = ''
 }
 
+function ScaleHand(){
+    document.getElementById("scale_card").style.transform = "scale(1.1)";
+    document.getElementById("scale_filter_image").style.transform = "scale(0.9)";
+}
+function DownScaleHand() {
+    document.getElementById("scale_card").style.transform = "scale(1.0)";
+    document.getElementById("scale_filter_image").style.transform = "scale(1.0)";
+}
+
 </script>
 <template>
-<main class="card_view_main">
-
+<main class="card_view_main" id="scale_card">
 <div class="fingers"></div>
     <SearchVue v-model="search_passed" />
     <Suspense>
-        <div class="hand_phone">
+        <div class="hand_phone" @mouseenter="ScaleHand()" @mouseleave="DownScaleHand()">
             <div class="controlls" v-show="DisableControlls == false"><p>{{ ResultsCount }} results ({{ PagesCount }} pages)</p></div>
             <List_comp 
             :search="search_passed" 
@@ -119,6 +126,7 @@ function ClearFilters() {
         <button class="Clear_filters" @click="ClearFilters()">clear all filters..</button>
         </div>
         <button v-show="showFilters == false" class="click_here" @click="showFilters = true">Click to FILTER</button>
-    <img class="filters_background" src="../assets/filter_background.png" alt="filters" @click="showFilters = true"/>
+    <img class="filters_background" id="scale_filter_image" src="../assets/filter_background.png" alt="filters" @click="showFilters = true"/>
 </div>
+<div class="flicker_cards"><img class="animation" src="../assets/lights.gif" alt="gif" /></div>
 </template>

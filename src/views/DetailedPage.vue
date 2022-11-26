@@ -1,5 +1,4 @@
 <script setup>
-import { stringifyStyle } from '@vue/shared';
 import { ref, computed, onMounted, onErrorCaptured, watch } from 'vue'
 const response_details = ref({})
 const error = ref('')
@@ -18,7 +17,6 @@ async function getData() {
     throw new Error()
   } else {
     response_details.value = await res.json()
-    console.log(response_details.value)
   }
 }
 
@@ -31,7 +29,6 @@ watch(props, () => {
 });
 
 onErrorCaptured((e) => {
-  console.log('error', e)
   error.value = e
   return true
 })
@@ -43,11 +40,10 @@ onErrorCaptured((e) => {
             <div class="picture_details_view_round"><img :src="response_details.image" alt="test"/></div>
             <div class="information">
               <p class="name">{{ response_details.name }}</p>
-              <p>{{ response_details.status }}</p>
-              <p>{{ response_details.species }}</p>
-              <p>{{ response_details.type }}</p>
-              <p>Gender: {{ response_details.gender }}</p>
-              <p>Character created {{ response_details.created }}</p>
+              <p>Status: <strong>{{ response_details.status }}</strong></p>
+              <p>Species: <strong>{{ response_details.species }}</strong></p>
+              <p>Gender: <strong>{{ response_details.gender }}</strong></p>
+              <p>Created: {{ response_details.created }}</p>
             </div>
           </div>
             <div class="picture_details_view"><img :src="response_details.image" alt="test"/></div>
@@ -56,6 +52,11 @@ onErrorCaptured((e) => {
 </template>
 
 <style scoped>
+
+p {
+  font-size: 0.9vw;
+  margin-top: 0.2vw;
+}
 .background_details {
   position: fixed;
   width: 86vw;
@@ -67,16 +68,14 @@ onErrorCaptured((e) => {
   margin-left: 14%;
   z-index: -1000;
 }
-
 .information {
   margin-left: 40%;
-  margin-top: -17%;
+  margin-top: -20%;
 }
 .name {
   font-size: 2.5vw;
   color: #8b4e79;
 }
-
 .picture_details_view{
   width: 15.5%;
   height: 10vw;
@@ -91,11 +90,9 @@ width: 20%;
 margin-top: 10%;
 margin-left: 10%;
 }
-
 .picture_details_view img{
   width: 100%;
 }
-
 .details_view_beamer {
   width: 30%;
   height: 18vw;
